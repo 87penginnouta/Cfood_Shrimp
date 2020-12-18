@@ -1,0 +1,1069 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);
+  opacity: 0;
+  animation: loading 3s linear;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+}
+.loading_content {
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  /*border:1px solid;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ico {
+  position: absolute;
+  width: 40%;
+  height: 20%;
+  top: 39%;
+  left: 50%;
+  /*background:$fish_dark;*/
+  transform: translate(-50%, -50%);
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/icoooo.png);
+  background-size: cover;
+  animation: ico 3s linear;
+  transform-origin: 30% 30%;
+}
+
+@keyframes ico {
+  0% {
+    transform: translate(-50%, -50%) rotatey(0deg);
+  }
+  20% {
+    transform: translate(-50%, -50%) rotatey(90deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotatey(0deg);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotatey(90deg);
+  }
+}
+.word_lo {
+  position: absolute;
+  font-size: 4vh;
+  top: 50%;
+  color: #7eabb1;
+  /*font-family:PingFang SC;*/
+  font-family: 微軟正黑體;
+  transform: translate(-50%, -50%);
+}
+
+.word_lo.w1 {
+  left: 20%;
+}
+
+.word_lo.w2 {
+  left: 40%;
+}
+
+.word_lo.w3 {
+  left: 60%;
+}
+
+.word_lo.w4 {
+  left: 80%;
+}
+
+#bg {
+  position: absolute;
+  width: 100vw;
+  height: 500vh;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/3e74a3f7.png);
+  /*background-image:url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);*/
+  padding: 0;
+  margin: 0;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  /*overflow-y: scroll;*/
+  opacity: 1;
+  animation: bg 3s linear;
+}
+
+@keyframes bg {
+  0% {
+    opacity: 0;
+    /*height:100vh;*/
+  }
+  50% {
+    opacity: 0;
+    /*height:500vh;*/
+  }
+  100% {
+    opacity: 1;
+    /*height:500vh;*/
+  }
+}
+#section1,
+#section2,
+#section3,
+#section4,
+#section5 {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#section1 {
+  top: 0;
+}
+
+#section2 {
+  top: 20%;
+}
+
+#section3 {
+  top: 40%;
+}
+
+#section4 {
+  top: 60%;
+}
+
+#section5 {
+  top: 80%;
+}
+
+.info,
+.content,
+.info_stop,
+.info_final,
+.info_menu,
+.info_title,
+.content_open {
+  position: absolute;
+  color: #f0ebd8;
+  font-family: "微軟正黑體";
+  line-height: 1.5;
+  letter-spacing: 0.5vh;
+}
+
+.info {
+  top: 5%;
+  left: 20%;
+  padding-left: 3vh;
+  font-size: 6vh;
+  font-weight: 700;
+  /*background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/b7ccac6f.png);
+  border-radius:3vh;*/
+}
+.info::before {
+  content: "";
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  top: -15%;
+  left: 0%;
+  background: #ffdb02;
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.info_stop,
+.info_final,
+.info_menu {
+  top: 5%;
+  padding-left: 3vh;
+  font-size: 6vh;
+  font-weight: 700;
+  /*background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/b7ccac6f.png);
+  border-radius:3vh;*/
+}
+.info_stop::before,
+.info_final::before,
+.info_menu::before {
+  content: "";
+  position: absolute;
+  width: 6vh;
+  height: 6vh;
+  top: 5%;
+  left: 5%;
+  background: #ffdb02;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.info_title {
+  top: 10%;
+  left: 50%;
+  width: 40%;
+  padding-left: 3vh;
+  font-size: 7vh;
+  font-weight: 700;
+  text-align: center;
+  transform: translate(-50%);
+}
+.info_title::before {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  width: 100%;
+  height: 1%;
+  background: #f0ebd8;
+  transform: translate(-50%);
+}
+
+.info_stop.i_right {
+  left: 60%;
+}
+
+.info_stop.i_left {
+  left: 10%;
+}
+
+.info_final {
+  left: 10%;
+}
+
+.info_menu {
+  text-decoration: none;
+  transition: 0.25s;
+}
+.info_menu:hover {
+  color: #ffdb02;
+}
+
+.info_menu.i_right {
+  left: 60%;
+}
+
+.info_menu.i_left {
+  left: 30%;
+}
+
+.highlight {
+  color: #ffdb02;
+}
+
+.highlight_stop {
+  color: #ffdb02;
+  font-size: 2vh;
+  font-family: "Monda";
+  letter-spacing: 0vh;
+}
+
+.highlight_number {
+  color: #ffdb02;
+  font-size: 4vh;
+  font-family: "Monda";
+  letter-spacing: 0vh;
+}
+
+.open_highlight {
+  color: #ffdb02;
+  font-size: 3vh;
+}
+
+.content_open {
+  top: 50%;
+  left: 30%;
+  font-size: 2.5vh;
+  font-weight: 700;
+}
+
+.content {
+  font-size: 3vh;
+  font-weight: 700;
+}
+
+.content_title {
+  font-size: 4vh;
+  font-weight: 700;
+}
+
+.progress_content {
+  position: absolute;
+  left: 70%;
+  top: 50%;
+  width: 20%;
+  height: 40%;
+  text-align: center;
+}
+
+.progress {
+  /*position: fixed;*/
+  position: absolute;
+  /*left:80vw;
+  top:15vh;*/
+  left: 0%;
+  top: 0%;
+  display: flex;
+  grid-template-rows: 100%;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /*border:1px solid;*/
+}
+
+.intro_bartitle {
+  height: 100%;
+  display: grid;
+  align-content: space-between;
+}
+
+.intro_bartitle a {
+  color: #f0ebd8;
+  cursor: pointer;
+  margin: 0;
+  font-size: 3vh;
+  font-weight: 700;
+  letter-spacing: 0.5vh;
+  padding-left: 5vh;
+  text-decoration: none;
+}
+.intro_bartitle a:hover {
+  color: #ffdb02;
+}
+
+.introbar {
+  position: absolute;
+  /*display: grid;
+  justify-items: center;
+  align-items: center;*/
+  height: 100%;
+  width: 10%;
+  top: 0%;
+  left: 0%;
+  /*border:1px solid;*/
+}
+
+.introline {
+  position: absolute;
+  width: 10%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0ebd8;
+}
+
+.intro_ball {
+  position: absolute;
+  width: 50%;
+  height: 5%;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  background: #ffdb02;
+}
+
+.intro_ball.b1 {
+  top: 3%;
+}
+
+.intro_ball.b2 {
+  top: 33%;
+}
+
+.intro_ball.b3 {
+  top: 63%;
+}
+
+.intro_ball.b4 {
+  top: 93%;
+}
+
+.fairy_content {
+  position: absolute;
+  width: 26%;
+  height: 50%;
+  /*border:1px solid;*/
+}
+
+.fairy_content.f1 {
+  bottom: 0;
+  left: 0;
+}
+
+.fairy_content.f2 {
+  top: 0;
+  right: 0;
+}
+
+.fairy_bg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0%;
+  left: 0;
+}
+
+.fairy {
+  position: absolute;
+  width: 54%;
+  height: auto;
+  bottom: 12%;
+  left: 30%;
+  /*background-image:url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/fairy1%402x.png);
+  background-size:cover;
+  background-position:center;*/
+  /*transition:0.5s;*/
+}
+.fairy:hover {
+  animation: fairy 1s infinite alternate;
+}
+
+@keyframes fairy {
+  50% {
+    transform: rotate(5deg);
+  }
+}
+.fairy_who {
+  position: absolute;
+  width: 54%;
+  height: auto;
+  top: 40%;
+  right: 10%;
+  transform: rotate(10deg);
+}
+
+.fairy_bubble {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  top: 10%;
+  left: 40%;
+}
+
+.who,
+.pick {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*border:1px solid;*/
+}
+
+.who {
+  width: 50%;
+  height: 66%;
+}
+
+.pick {
+  width: 60%;
+  height: 40%;
+}
+
+.modal_card {
+  position: absolute;
+  width: 34%;
+  height: 48%;
+  /*width:32vh;
+  height:32vh;*/
+  /*background: $cream_bg;*/
+  transform: translate(-50%);
+}
+
+.modal_card.c1 {
+  top: 0;
+  /*left: 0;*/
+  left: 12.5%;
+}
+
+.modal_card.c2 {
+  top: 0;
+  /*left: 34%;*/
+  left: 50%;
+}
+
+.modal_card.c3 {
+  top: 0;
+  /*right: 0;*/
+  left: 87.5%;
+}
+
+.modal_card.c4 {
+  bottom: 0;
+  /*left: 0;*/
+  left: 12.5%;
+}
+
+.modal_card.c5 {
+  bottom: 0;
+  /*left: 34%;*/
+  left: 50%;
+}
+
+.modal_card.c6 {
+  bottom: 0;
+  /*right: 0;*/
+  left: 87.5%;
+}
+
+/* [Object] Modal
+ * =============================== */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.75);
+  transition: opacity 0.25s ease;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked + .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked + .modal .modal__inner {
+  top: 0;
+}
+
+/*modal打開後的空間*/
+.modal__inner {
+  transition: top 0.25s ease;
+  position: absolute;
+  top: -20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 70%;
+  margin: auto;
+  overflow: auto;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/3e74a3f7.png);
+  border-radius: 1%;
+  /*padding: 1em 2em;*/
+  padding: 5% 5%;
+}
+
+/*關閉modal按鈕*/
+.modal__close {
+  position: absolute;
+  /*right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;*/
+  right: 5%;
+  top: 5%;
+  width: 5%;
+  height: 5%;
+  cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: "";
+  position: absolute;
+  /*width: 2px;
+  height: 1.5em;*/
+  width: 100%;
+  height: 10%;
+  left: 50%;
+  top: 0;
+  background: #94d0d3;
+  display: block;
+  transform: rotate(45deg);
+  /*margin: -3px 0 0 -1px;*/
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+  .modal__inner {
+    /*width: 90%;
+    height: 90%;*/
+    width: 80%;
+    height: 90%;
+    box-sizing: border-box;
+  }
+}
+.modal_btn {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  /*background: $cream_bg;*/
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  /*padding: .5em 1em;
+  color: #fff;
+  border-radius: 3px;*/
+}
+
+.modal_btn:hover,
+.modal_btn:focus {
+  background: #2ecc71;
+}
+
+.modal_btn:active {
+  background: #27ae60;
+  /*box-shadow: 0 1px 2px rgba(0,0,0, .2) inset;*/
+}
+
+/*p img {
+  max-width: 200px;
+  height: auto;
+  float: left;
+  margin: 0 1em 1em 0;
+  z-index:200;
+}*/
+.ani {
+  position: absolute;
+  width: 80%;
+  height: 50%;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 3vh;
+  font-weight: 700;
+  font-family: "微軟正黑體";
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.ani_title {
+  font-size: 7vh;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.ani_img {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  top: 5%;
+  right: 10%;
+}
+
+.animal {
+  position: absolute;
+  /*max-width: 80%;
+  height: auto;*/
+  width: auto;
+  height: 90%;
+  /*top: 45%;*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animal_up 1s alternate infinite;
+}
+
+@keyframes animal_up {
+  0% {
+    transform: translate(-50%, -50%) translatey(1vh);
+  }
+}
+.animal.a1 {
+  top: 48%;
+}
+
+.animal.a2 {
+  top: 46%;
+}
+
+.animal.a3 {
+  top: 48%;
+}
+
+.animal.a4 {
+  top: 48%;
+}
+
+.animal.a5 {
+  top: 48%;
+}
+
+.animal.a6 {
+  top: 56%;
+}
+
+.shadow {
+  position: absolute;
+  width: 30%;
+  height: 5%;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%);
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+/*card*/
+/*.pick{
+  position:absolute;
+  width:60%;
+  height:60%;
+  top:20%;
+  left:50%;
+  transform:translate(-50%);
+  border:1px solid;
+}*/
+.card {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  top: 0;
+  transform: translate(-50%);
+  border-radius: 2vh;
+  margin: 0 auto;
+  /*width: 500px;*/
+  /*max-width: 30%;*/
+  /*min-height: 500px;*/
+  /*box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);*/
+  /*border:0.5vh solid $cream;*/
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.card.card1 {
+  left: 12.5%;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/pick1.png);
+}
+
+.card.card2 {
+  left: 50%;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/pick2.png);
+}
+
+.card.card3 {
+  left: 87.5%;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/pick3.png);
+}
+
+.card_info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0ebd8;
+  /*transform: translateY(100%)
+    translateY(-88px)
+    translateZ(0);*/
+  transform: translatey(100%) translatey(-20%);
+  transition: transform 0.5s ease-out;
+}
+
+.card_info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/pick1.png);
+  /*filter: blur(10px);*/
+  filter: blur(30px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out;
+}
+
+.card:hover .card_info,
+.card:hover .card_info:before {
+  transform: translateY(0) translateZ(0);
+}
+
+.card_title {
+  margin: 0;
+  /*padding: 24px;*/
+  padding: 3vh;
+  font-size: 3vh;
+  font-family: "微軟正黑體";
+  line-height: 1.5;
+  letter-spacing: 0.5vh;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 800;
+}
+
+.description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/*-----menu-----*/
+#menu {
+  position: fixed;
+  width: 15vh;
+  height: 100vh;
+  background: none;
+  left: 0;
+  top: 0;
+  border-right: 0.25vh solid #f0ebd8;
+  -webkit-transform: translateZ(0);
+}
+
+.menu_bg {
+  position: fixed;
+  /*background: $cream;*/
+  /*background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);*/
+  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/b7ccac6f.png);
+  width: 120vw;
+  height: 100vh;
+  left: -150vw;
+  /*top: -45vh;*/
+  top: 0;
+  transition: 1s;
+}
+.menu_bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  top: 70%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.hamburger {
+  position: absolute;
+  width: 50%;
+  height: 10vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#toggle {
+  /*position: absolute;
+  width: 100%;
+  height: 60%;
+  left: 50%;
+  top: 40%;*/
+  position: fixed;
+  width: 10vh;
+  height: 10vh;
+  top: 50%;
+  left: 7.5vh;
+  border: none;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+#toggle:checked ~ .menu_bg {
+  transform: translatex(140vw);
+  transition: 1s;
+}
+
+/*#toggle:checked ~ .text {
+  color: $fish_dark;
+  transition: 1s;
+}*/
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  position: absolute;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #f0ebd8;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  animation: line 1s infinite linear alternate;
+}
+
+@keyframes line {
+  0% {
+    stroke: #f0ebd8;
+  }
+  100% {
+    stroke: #7eabb1;
+  }
+}
+.ham .top {
+  stroke-dasharray: 40 139;
+}
+
+.ham .bottom {
+  stroke-dasharray: 40 180;
+}
+
+.ham.active .top {
+  stroke-dashoffset: -98px;
+}
+
+.ham.active .bottom {
+  stroke-dashoffset: -138px;
+}
+
+.text {
+  /*position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  left: 50%;*/
+  position: fixed;
+  width: 10vh;
+  height: 5vh;
+  top: 52%;
+  left: 7.5vh;
+  transform: translate(-50%);
+  text-align: center;
+  /*font-family: 'Barlow Condensed', sans-serif;*/
+  /*font-family: 'Teko', sans-serif;*/
+  font-family: "Monda", sans-serif;
+  color: #f0ebd8;
+  font-size: 1vh;
+}
+
+/*-----menu_open-----*/
+/*#menu_link,
+.animal_link {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  list-style: none;
+}*/
+/*#menu_link {
+  left: 50%;
+  top: 70%;
+}*/
+/*.animal_link {
+  top: 30%;
+}*/
+/*.animal_link.a1 {
+  left: 35%;
+}*/
+/*.animal_link.a2 {
+  left: 65%;
+}*/
+.menu_top {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.menu_bottom {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fb,
+.ig {
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+  top: 85%;
+  padding-left: 3vh;
+}
+
+.fb {
+  left: 60%;
+}
+
+.ig {
+  left: 65%;
+}
+
+.about {
+  position: absolute;
+  width: 20%;
+  height: 8%;
+  top: 85%;
+  left: 37%;
+  border-radius: 50vh;
+  background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);
+  color: #7eabb1;
+  font-family: "微軟正黑體";
+  font-size: 3vh;
+  font-weight: 700;
+  text-align: right;
+  line-height: 9vh;
+  letter-spacing: 0.5vh;
+  box-shadow: 2vh 2vh 5vh rgba(0, 0, 0, 0.15);
+  transition: 0.25s;
+}
+.about:hover {
+  box-shadow: 0vh 0vh 0vh rgba(0, 0, 0, 0.15);
+}
+
+@keyframes up {
+  0% {
+    transform: translatey(1.5vh);
+  }
+}
+.boat_menu {
+  position: absolute;
+  width: 30vh;
+  height: 20vh;
+  top: 75%;
+  left: 30%;
+  background-image: url("https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/boat.png");
+  background-size: cover;
+  animation: up 2s infinite alternate;
+}
