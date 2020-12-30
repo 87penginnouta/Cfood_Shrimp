@@ -1304,17 +1304,18 @@ body {
   position: absolute;
   width: auto;
   height: 90%;
-  transform: translate(-50%, -50%);
 }
 
 .animal {
   left: 50%;
   animation: animal_up 1s alternate infinite;
+  transform: translate(-50%, -50%);
 }
 
 .animal_compare {
   left: 75%;
   top: 50%;
+  transform: translate(-50%, -50%) scalex(-1);
 }
 
 @keyframes animal_up {
