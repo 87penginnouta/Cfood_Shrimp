@@ -323,18 +323,19 @@ body {
 
 .sns_content {
   position: absolute;
-  width: 30%;
   height: 100%;
 }
 
 .sns_content.s_footer {
   top: 0;
   right: 0;
+  width:30%;
 }
 
 .sns_content.s_menu {
-  top: 85%;
-  left: 35%;
+  top:85%;
+  left:45%;
+  width:20%;
 }
 
 .sns_btn {
