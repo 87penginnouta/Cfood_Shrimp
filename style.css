@@ -1134,11 +1134,11 @@ body {
 
 .modal_btn:hover,
 .modal_btn:focus {
-  background: #2ecc71;
+  background: #d1ac64;
 }
 
 .modal_btn:active {
-  background: #27ae60;
+  background: #a17e3a;
 }
 
 .ani,
