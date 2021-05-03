@@ -1,11 +1,13 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
 html {
   -ms-overflow-style: none;
   scrollbar-width: none;
   font-family: "Monda", "Arial", "Noto Sans TC", "微軟正黑體", sans-serif;
 }
+
+html {
+  overflow-y: hidden;
+}
+
 html::-webkit-scrollbar {
   display: none;
 }
@@ -14,23 +16,17 @@ body {
   border: none;
   padding: 0;
   margin: 0;
-  /*cursor:none;*/
+  -webkit-overflow-scrolling: touch
 }
 
-#loading {
-  position: fixed;
+.loading_wrapper {
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);
-  opacity: 0;
-  animation: loading 3s linear;
+  background-color: #f0ebd8;
+  z-index: 999;
 }
 
-@keyframes loading {
-  0% {
-    opacity: 1;
-  }
-}
 .loading_content {
   position: absolute;
   width: 30vh;
@@ -47,33 +43,36 @@ body {
   top: 39%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/logo/loading.png);
+  background-image: url("./img/bg/loading.png");
   background-size: cover;
-  animation: ico 3s linear;
+  animation: ico 3s linear infinite;
   transform-origin: 30% 30%;
 }
 
 @keyframes ico {
   0% {
-    transform: translate(-50%, -50%) rotatey(0deg);
+    transform: translate(-50%, -50%) rotateY(0deg);
   }
+
   20% {
-    transform: translate(-50%, -50%) rotatey(90deg);
+    transform: translate(-50%, -50%) rotateY(90deg);
   }
+
   50% {
-    transform: translate(-50%, -50%) rotatey(0deg);
+    transform: translate(-50%, -50%) rotateY(0deg);
   }
+
   70% {
-    transform: translate(-50%, -50%) rotatey(90deg);
+    transform: translate(-50%, -50%) rotateY(90deg);
   }
 }
+
 .word_lo {
   position: absolute;
-  font-size: 4vh;
   top: 50%;
+  font-size: 4vh;
   color: #7eabb1;
   font-weight: 600;
-  /*font-family: 微軟正黑體;*/
   transform: translate(-50%, -50%);
 }
 
@@ -94,46 +93,30 @@ body {
 }
 
 #bg {
-  /*position: absolute;*/
+  /* position: absolute; */
   position: relative;
   width: 100vw;
   height: 500vh;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/bg/c6fa7e75.png);
+  background-image: url("./img/bg/bg.jpg");
   padding: 0;
-  /*padding-top: 65px;*/
   margin: 0;
   top: 0;
-  left: 50%;
-  transform: translate(-50%);
+  left: 0;
   overflow: hidden;
-  /*overflow-y: scroll;*/
-  opacity: 1;
   box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.3);
-  animation: bg 3s linear;
+  visibility: hidden;
 }
 
-@keyframes bg {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 #footer {
   position: fixed;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/bg/c6fa7e75.png);
+  background-image: url("./img/bg/bg.jpg");
   min-height: 30vh;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  padding: 25px 0;
+  padding: 50px 0;
   margin: 0;
-  animation: bg 6s;
 }
 
 .footer_bg {
@@ -163,9 +146,11 @@ body {
   left: 50%;
   transform: translate(-50%);
 }
+
 .foot_img:hover {
   animation: footer_logo 1s infinite;
 }
+
 .foot_img:active {
   transform: translate(-50%) scale(1.1);
 }
@@ -174,13 +159,16 @@ body {
   0% {
     transform: translate(-50%) scale(1);
   }
+
   50% {
     transform: translate(-50%) scale(1.2);
   }
+
   100% {
     transform: translate(-50%) scale(1);
   }
 }
+
 #footer_content {
   position: fixed;
   width: 70%;
@@ -188,7 +176,6 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translate(-50%);
-  animation: bg 5s;
 }
 
 .link_content {
@@ -220,13 +207,15 @@ body {
   text-decoration: none;
   color: #f0ebd8;
   font-size: 3vh;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   line-height: 1.5;
   transition: 0.5s;
 }
+
 .link_text:hover {
   color: #ffdb02;
 }
+
 .link_text:active {
   font-size: 3.25vh;
 }
@@ -246,11 +235,12 @@ body {
   top: 50%;
   background: #ffdb02;
   clip-path: polygon(50% 0, 25% 50%, 50% 100%, 25% 100%, 0% 50%, 25% 0%);
+  -webkit-clip-path: polygon(50% 0, 25% 50%, 50% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
 
 .link_arrow.a_left {
   left: 75%;
-  transform: translate(-50%, -50%) scalex(-1);
+  transform: translate(-50%, -50%) scaleX(-1);
 }
 
 .link_arrow.a_right {
@@ -258,11 +248,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.link:hover > .link_arrow.a_right {
+.link:hover>.link_arrow.a_right {
   animation: arrow 2s infinite;
 }
 
-.link:hover > .link_arrow.a_left {
+.link:hover>.link_arrow.a_left {
   animation: arrow2 2s infinite;
 }
 
@@ -270,15 +260,19 @@ body {
   0% {
     left: 20%;
   }
+
   20% {
     left: 15%;
   }
+
   25% {
     left: 25%;
   }
+
   50% {
     left: 15%;
   }
+
   55% {
     left: 20%;
   }
@@ -288,15 +282,19 @@ body {
   0% {
     left: 80%;
   }
+
   20% {
     left: 75%;
   }
+
   25% {
     left: 85%;
   }
+
   50% {
     left: 75%;
   }
+
   55% {
     left: 80%;
   }
@@ -324,22 +322,23 @@ body {
 .sns_content {
   position: absolute;
   height: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .sns_content.s_footer {
   top: 0;
   right: 0;
-  width:30%;
+  width: 20%;
 }
 
 .sns_content.s_menu {
-  top:85%;
-  left:45%;
-  width:20%;
+  top: 85%;
+  left: 52.5%;
+  width: 10%;
 }
 
 .sns_btn {
-  position: absolute;
   width: 7vh;
   height: 7vh;
   top: 0;
@@ -347,19 +346,13 @@ body {
   border-radius: 50%;
   transition: 0.5s;
 }
+
 .sns_btn:hover {
   background: #ffdb02;
 }
+
 .sns_btn:active {
   transform: scale(1.1);
-}
-
-.sns_btn.s_fb {
-  right: 25%;
-}
-
-.sns_btn.s_ig {
-  right: 0;
 }
 
 #section1,
@@ -398,13 +391,12 @@ body {
 .content,
 .info_stop,
 .info_final,
-.info_menu,
 .open_title,
 .open_content {
   position: absolute;
   color: #f0ebd8;
   line-height: 1.5;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
 }
 
 .info {
@@ -415,6 +407,7 @@ body {
   font-weight: 700;
   font-family: "微軟正黑體";
 }
+
 .info::before {
   content: "";
   position: absolute;
@@ -424,19 +417,19 @@ body {
   left: 0%;
   background: #ffdb02;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
 }
 
 .info_stop,
-.info_final,
-.info_menu {
+.info_final {
   top: 5%;
   padding-left: 3vh;
   font-size: 6vh;
   font-weight: 700;
 }
+
 .info_stop::before,
-.info_final::before,
-.info_menu::before {
+.info_final::before {
   content: "";
   position: absolute;
   width: 6vh;
@@ -445,6 +438,7 @@ body {
   left: 5%;
   background: #ffdb02;
   clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
 }
 
 .info_stop.i_right {
@@ -459,38 +453,14 @@ body {
   left: 10%;
 }
 
-.info_menu {
-  text-decoration: none;
-  transition: 0.25s;
-}
-.info_menu:hover {
-  color: #ffdb02;
-}
-
-.info_menu.i_right {
-  left: 60%;
-}
-
-.info_menu.i_left {
-  left: 30%;
-}
-
 .highlight {
   color: #ffdb02;
 }
 
-.highlight_stop {
-  color: #ffdb02;
-  font-size: 2vh;
-  /*font-family: "Monda";*/
-  letter-spacing: 0vh;
-}
-
-.highlight_number {
-  color: #ffdb02;
-  font-size: 4vh;
-  /*font-family: "Monda";*/
-  letter-spacing: 0vh;
+.open_title,
+.open_sub {
+  font-weight: 700;
+  font-family: "微軟正黑體";
 }
 
 .open_title {
@@ -498,11 +468,11 @@ body {
   left: 30%;
   width: 40%;
   padding-left: 3vh;
-  font-size: 7vh;
-  /*font-weight: 700;*/
+  font-size: 6.5vh;
   text-align: center;
   transform: translate(-50%);
 }
+
 .open_title::before {
   content: "";
   position: absolute;
@@ -516,21 +486,12 @@ body {
 
 .open_sub {
   font-size: 4vh;
-  /*font-weight: 700;*/
-}
-
-.open_title,
-.open_sub {
-  font-weight: 700;
-  font-family: "微軟正黑體";
 }
 
 .open_content {
   top: 50%;
-  /*left: 30%;*/
   left: 50%;
   font-size: 2.5vh;
-  /*font-weight: 700;*/
   font-weight: 500;
 }
 
@@ -541,32 +502,31 @@ body {
 
 .content {
   font-size: 2.5vh;
-  /*font-weight: 700;*/
   font-weight: 500;
   font-family: "Noto Sans TC";
 }
 
-.top_animal{
-  position:absolute;
-  width:100%;
-  height:35%;
-  top:15%;
+.top_animal {
+  position: absolute;
+  width: 100%;
+  height: 35%;
+  top: 15%;
 }
 
-.top_ani{
-  position:absolute;
-  width:auto;
-  height:120%;
-  top:-10%;
+.top_ani {
+  position: absolute;
+  width: auto;
+  height: 120%;
+  top: -10%;
 }
 
-.top_ani.t_left{
-  left:0;
-  transform:scalex(-1);
+.top_ani.t_left {
+  left: 0;
+  transform: scaleX(-1);
 }
 
-.top_ani.t_right{
-  right:0;
+.top_ani.t_right {
+  right: 0;
 }
 
 #progress {
@@ -576,8 +536,8 @@ body {
   width: 100%;
   height: 12.5%;
   text-align: center;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/bg/c6fa7e75.png);
-  animation: bg 5s;
+  background-image: url("./img/bg/bg.jpg");
+  border: none;
 }
 
 .progress_bg {
@@ -587,6 +547,7 @@ body {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
+  border: none;
 }
 
 .progress_line {
@@ -629,6 +590,7 @@ body {
   opacity: 0.25;
   transition: 0.5s;
 }
+
 .stop:hover {
   opacity: 1;
 }
@@ -656,10 +618,9 @@ body {
   top: 10%;
   left: 50%;
   transform: translate(-50%);
-  background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);
+  background-image: url("./img/bg/loading_bg.jpg");
   border-radius: 50%;
   line-height: 5vh;
-  /*font-family: "Monda";*/
   color: rgba(0, 0, 0, 0.3);
 }
 
@@ -670,9 +631,7 @@ body {
   transform: translate(-50%);
   text-decoration: none;
   font-size: 2vh;
-  /*font-weight: 700;*/
-  /*font-family: "微軟正黑體";*/
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   color: #f0ebd8;
 }
 
@@ -682,7 +641,6 @@ body {
   height: 7vh;
   bottom: 3%;
   right: 1%;
-  animation: bg 5s;
 }
 
 #gotop {
@@ -698,28 +656,34 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 3vh rgba(0, 0, 0, 0.15);
 }
+
 #gotop:hover {
   background: #f0ebd8;
   transition: 0.5s;
 }
+
 #gotop:active {
   background: #f0ebd8;
   transition: 0.5s;
   transform: translate(-50%) scale(1.2);
 }
 
+#gotop,
+.godown,
+.sns_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn_img {
-  position: absolute;
   width: 50%;
   height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   opacity: 0.25;
 }
 
 .down {
-  transform: translate(-50%, -50%) scaley(-1);
+  transform: scaleY(-1);
 }
 
 #godown_content {
@@ -729,7 +693,6 @@ body {
   bottom: 2.5%;
   left: 50%;
   transform: translate(-50%);
-  animation: bg 5s;
 }
 
 .godown {
@@ -741,20 +704,8 @@ body {
   transform: translate(-50%);
   border-radius: 50%;
   background: rgba(240, 235, 216, 0.25);
-  animation: godown 1.5s infinite;
 }
 
-@keyframes godown {
-  0%, 20%, 50%, 80%, 100% {
-    top: 0;
-  }
-  40% {
-    top: 30%;
-  }
-  60% {
-    top: 15%;
-  }
-}
 .fairy_content {
   position: absolute;
 }
@@ -781,6 +732,7 @@ body {
   right: 0;
   transition: 0.5s;
 }
+
 .fairy_open:hover {
   animation: fairy 2s infinite;
 }
@@ -789,16 +741,20 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   20% {
     transform: rotate(2deg);
   }
+
   50% {
     transform: rotate(-2deg);
   }
+
   70% {
     transform: rotate(0deg);
   }
 }
+
 .fairy_talk {
   position: absolute;
   width: 50%;
@@ -813,7 +769,7 @@ body {
   height: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scalex(-1);
+  transform: translate(-50%, -50%) scaleX(-1);
 }
 
 .talk_word {
@@ -825,7 +781,7 @@ body {
   transform: translate(-50%, -50%);
   color: rgba(0, 0, 0, 0.3);
   font-size: 2.5vh;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   line-height: 1.5;
   text-align: center;
   font-weight: 700;
@@ -836,9 +792,7 @@ body {
 .prepare,
 .food {
   position: absolute;
-  /*left: 50%;*/
   top: 40%;
-  /*transform: translate(-50%);*/
   left: 22.5%;
 }
 
@@ -946,8 +900,6 @@ body {
   left: 97.5%;
 }
 
-/* [Object] Modal
- * =============================== */
 .modal {
   opacity: 0;
   visibility: hidden;
@@ -974,15 +926,15 @@ body {
   display: none;
 }
 
-.modal-state:checked + .modal {
+.modal-state:checked+.modal {
   opacity: 1;
   visibility: visible;
   transform: scaleY(0.01) scaleX(0);
   animation: unfoldIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-.modal-state:checked + .modal .modal__inner,
-.modal-state:checked + .modal .modal__inner_food {
+.modal-state:checked+.modal .modal__inner,
+.modal-state:checked+.modal .modal__inner_food {
   top: 0;
   transform: scale(0);
   animation: zoomIn 0.5s 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -992,30 +944,33 @@ body {
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 @keyframes zoomIn {
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 /*modal打開後的空間*/
 .modal__inner,
 .modal__inner_food {
-  /*transition: top 0.25s ease;*/
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 50%;
+  width: 60%;
   margin: auto;
   overflow: hidden;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/bg/c6fa7e75.png);
+  background-image: url("./img/bg/bg.jpg");
   border-radius: 1%;
   padding: 5% 5%;
 }
@@ -1071,15 +1026,6 @@ body {
   transform: rotate(-45deg);
 }
 
-@media screen and (max-width: 768px) {
-  .modal__inner {
-    /*width: 90%;
-    height: 90%;*/
-    width: 80%;
-    height: 90%;
-    box-sizing: border-box;
-  }
-}
 .modal_btn,
 .modal_food_btn,
 .compare_btn {
@@ -1101,15 +1047,19 @@ body {
   background: #f0ebd8;
   transition: 0.5s;
 }
+
 .modal_food_btn::before {
   top: -10%;
 }
+
 .modal_food_btn::after {
   bottom: -10%;
 }
+
 .modal_food_btn:hover {
   box-shadow: 0vh 0vh 5vh #f0ebd8;
 }
+
 .modal_food_btn:active {
   transform: scale(1.1);
 }
@@ -1135,10 +1085,12 @@ body {
   transform: translate(-50%);
   overflow-x: hidden;
 }
+
 .food_ribbon::before {
   height: 40%;
   top: 0;
 }
+
 .food_ribbon::after {
   height: 50%;
   top: 50%;
@@ -1175,18 +1127,18 @@ body {
   writing-mode: vertical-rl;
   font-size: 3vh;
   line-height: 1.5;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.3);
 }
 
 .modal_btn:hover,
 .modal_btn:focus {
-  background: #ab8e37;
+  background: #2ecc71;
 }
 
 .modal_btn:active {
-  background: #826611;
+  background: #27ae60;
 }
 
 .ani,
@@ -1194,8 +1146,7 @@ body {
   position: absolute;
   font-size: 2.5vh;
   font-weight: 500;
-  letter-spacing: 0.5vh;
-  /*font-family: "微軟正黑體";*/
+  letter-spacing: 0.15em;
   color: #f0ebd8;
 }
 
@@ -1248,11 +1199,11 @@ body {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.note_li + .note_li {
+.note_li+.note_li {
   border-bottom: 0.25vh solid rgba(0, 0, 0, 0.3);
 }
 
-.front_li + .front_li {
+.front_li+.front_li {
   border-bottom: 0.25vh solid transparent;
 }
 
@@ -1291,7 +1242,7 @@ body {
   height: 4vh;
   color: rgba(240, 235, 216, 0.25);
   font-size: 4vh;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   line-height: 4vh;
 }
 
@@ -1330,25 +1281,25 @@ body {
   position: absolute;
   width: auto;
   height: 90%;
+  transform: translate(-50%, -50%);
 }
 
 .animal {
   left: 50%;
   animation: animal_up 1s alternate infinite;
-  transform: translate(-50%, -50%);
 }
 
 .animal_compare {
   left: 75%;
   top: 50%;
-  transform: translate(-50%, -50%) scalex(-1);
 }
 
 @keyframes animal_up {
   0% {
-    transform: translate(-50%, -50%) translatey(1vh);
+    transform: translate(-50%, -50%) translateY(1vh);
   }
 }
+
 .animal.a1 {
   top: 48%;
 }
@@ -1385,7 +1336,6 @@ body {
   filter: blur(1vh);
 }
 
-/*-----card-----*/
 .card {
   position: absolute;
   width: 25%;
@@ -1401,22 +1351,22 @@ body {
 
 .card.card1 {
   left: 10%;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/1.png);
+  background-image: url("./img/pick/1.jpg");
 }
 
 .card.card2 {
   left: 40%;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/2.png);
+  background-image: url("./img/pick/2.jpg");
 }
 
 .card.card3 {
   left: 70%;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/3.png);
+  background-image: url("./img/pick/3.jpg");
 }
 
 .card.card4 {
   left: 100%;
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/4.png);
+  background-image: url("./img/pick/4.jpg");
 }
 
 .card_info {
@@ -1426,9 +1376,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0ebd8;
-  transform: translatey(100%) translatey(-20%);
+  transform: translateY(100%) translateY(-20%);
   transition: transform 0.5s ease-out;
 }
+
 .card_info::before {
   content: "";
   position: absolute;
@@ -1445,19 +1396,19 @@ body {
 }
 
 .card_info.c_info1:before {
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/1.png);
+  background-image: url("./img/pick/1.jpg");
 }
 
 .card_info.c_info2:before {
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/2.png);
+  background-image: url("./img/pick/2.jpg");
 }
 
 .card_info.c_info3:before {
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/3.png);
+  background-image: url("./img/pick/3.jpg");
 }
 
 .card_info.c_info4:before {
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Shrimp/gh-pages/pick/4.png);
+  background-image: url("./img/pick/4.jpg");
 }
 
 .card:hover .card_info,
@@ -1470,18 +1421,14 @@ body {
   margin: 0;
   padding: 2vh;
   color: rgba(0, 0, 0, 0.3);
+  font-size: 2.5vh;
   line-height: 1.5;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
 }
 
 .card_title {
-  font-size: 3vh;
   font-weight: 700;
   text-align: center;
-}
-
-.description {
-  font-size: 2.5vh;
 }
 
 /*-----slider-----*/
@@ -1515,19 +1462,19 @@ body {
   overflow: hidden;
 }
 
-#slide1:checked ~ #slides .inner {
+#slide1:checked~#slides .inner {
   margin-left: 0;
 }
 
-#slide2:checked ~ #slides .inner {
+#slide2:checked~#slides .inner {
   margin-left: -100%;
 }
 
-#slide3:checked ~ #slides .inner {
+#slide3:checked~#slides .inner {
   margin-left: -200%;
 }
 
-#slide4:checked ~ #slides .inner {
+#slide4:checked~#slides .inner {
   margin-left: -300%;
 }
 
@@ -1543,11 +1490,8 @@ body {
 #slides .slide {
   width: 25%;
   float: left;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
   height: 100%;
-  background-image: url(https://images.plurk.com/4G3rfaZfxPHS1G1c821qzq.png);
+  background-image: url("./img/bg/loading_bg.jpg");
 }
 
 .prepare_title {
@@ -1581,7 +1525,7 @@ body {
   height: 70%;
   transform: translate(-50%);
   font-weight: 700;
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.15em;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -1612,7 +1556,6 @@ body {
 }
 
 #controls {
-  /*position: relative;*/
   position: absolute;
   top: 50%;
   width: 100%;
@@ -1627,26 +1570,27 @@ body {
   height: 5vh;
   opacity: 0.3;
 }
+
 #controls label:hover {
   opacity: 0.7;
 }
 
-#slide1:checked ~ #controls label:nth-child(2),
-#slide2:checked ~ #controls label:nth-child(3),
-#slide3:checked ~ #controls label:nth-child(1) {
+#slide1:checked~#controls label:nth-child(2),
+#slide2:checked~#controls label:nth-child(3),
+#slide3:checked~#controls label:nth-child(1) {
   display: block;
   margin: 0 -5vh 0 0;
   float: right;
-  background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+  background: no-repeat url("https://image.flaticon.com/icons/svg/130/130884.svg");
 }
 
-#slide1:checked ~ #controls label:nth-last-child(1),
-#slide2:checked ~ #controls label:nth-last-child(3),
-#slide3:checked ~ #controls label:nth-last-child(2) {
+#slide1:checked~#controls label:nth-last-child(1),
+#slide2:checked~#controls label:nth-last-child(3),
+#slide3:checked~#controls label:nth-last-child(2) {
   display: block;
   margin: 0 0 0 -5vh;
   float: left;
-  background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+  background: no-repeat url("https://image.flaticon.com/icons/svg/130/130882.svg");
 }
 
 #bullets {
@@ -1670,31 +1614,14 @@ body {
   transition: 0.5s;
 }
 
-#slide1:checked ~ #bullets label:nth-child(1),
-#slide2:checked ~ #bullets label:nth-child(2),
-#slide3:checked ~ #bullets label:nth-child(3),
-#slide4:checked ~ #bullets label:nth-child(4) {
+#slide1:checked~#bullets label:nth-child(1),
+#slide2:checked~#bullets label:nth-child(2),
+#slide3:checked~#bullets label:nth-child(3),
+#slide4:checked~#bullets label:nth-child(4) {
   background: rgba(0, 0, 0, 0.3);
   transform: scale(1.25);
 }
 
-/*@media screen and (max-width: 900px) {
-  #slide1:checked ~ #controls label:nth-child(2),
-  #slide2:checked ~ #controls label:nth-child(3),
-  #slide3:checked ~ #controls label:nth-child(4),
-  #slide4:checked ~ #controls label:nth-child(1),
-  #slide1:checked ~ #controls label:nth-last-child(2),
-  #slide2:checked ~ #controls label:nth-last-child(3),
-  #slide3:checked ~ #controls label:nth-last-child(4),
-  #slide4:checked ~ #controls label:nth-last-child(1) {
-    margin: 0;
-  }
-  #slides {
-    max-width: calc(100% - 140px);
-    margin: 0 auto;
-  }
-}*/
-/*-----menu-----*/
 #menu {
   position: fixed;
   width: 15vh;
@@ -1703,15 +1630,13 @@ body {
   left: 0;
   top: 0;
   border-right: 0.25vh solid #f0ebd8;
+  transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  animation: bg 5s;
 }
 
 .menu_bg {
   position: fixed;
-  /*background: $cream;*/
-  background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_enter/master/bg/bdab3c87.png);
-  /*background-image: url(https://raw.githubusercontent.com/87penginnouta/Cfood_Cephalopoda/gh-pages/bg/3e74a3f7.png);*/
+  background-image: url("./img/menu/menu_bg.jpg");
   width: 120vw;
   height: 100vh;
   left: -150vw;
@@ -1719,6 +1644,7 @@ body {
   box-shadow: 0 0 5vh rgba(0, 0, 0, 0.3);
   transition: 1s;
 }
+
 .menu_bg::before {
   content: "";
   position: absolute;
@@ -1746,7 +1672,7 @@ body {
   left: 0;
   text-decoration: none;
   border-top: 0.25vh solid rgba(240, 235, 216, 0.25);
-  letter-spacing: 0.5vh;
+  letter-spacing: 0.2em;
   transition: 0.5s;
 }
 
@@ -1791,7 +1717,7 @@ body {
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translatey(-50%);
+  transform: translateY(-50%);
 }
 
 .menu_link {
@@ -1816,7 +1742,7 @@ body {
   height: 40%;
   top: 65%;
   left: 75%;
-  transform: scalex(-1);
+  transform: scaleX(-1);
 }
 
 .hamburger {
@@ -1829,11 +1755,6 @@ body {
 }
 
 #toggle {
-  /*position: absolute;
-  width: 100%;
-  height: 60%;
-  left: 50%;
-  top: 40%;*/
   position: fixed;
   width: 10vh;
   height: 10vh;
@@ -1845,15 +1766,11 @@ body {
   opacity: 0;
 }
 
-#toggle:checked ~ .menu_bg {
-  transform: translatex(140vw);
+#toggle:checked~.menu_bg {
+  transform: translateX(140vw);
   transition: 1s;
 }
 
-/*#toggle:checked ~ .text {
-  color: $fish_dark;
-  transition: 1s;
-}*/
 .ham {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -1887,10 +1804,12 @@ body {
   0% {
     stroke: #f0ebd8;
   }
+
   100% {
     stroke: #7eabb1;
   }
 }
+
 .ham .top {
   stroke-dasharray: 40 139;
 }
@@ -1907,12 +1826,7 @@ body {
   stroke-dashoffset: -138px;
 }
 
-.text {
-  /*position: absolute;
-  width: 100%;
-  height: 30%;
-  bottom: 0;
-  left: 50%;*/
+/* .text {
   position: fixed;
   width: 10vh;
   height: 5vh;
@@ -1920,8 +1834,6 @@ body {
   left: 7.5vh;
   transform: translate(-50%);
   text-align: center;
-  /*font-family: "Monda", sans-serif;*/
   color: #f0ebd8;
   font-size: 1vh;
-  animation: bg 5s;
-}
+} */
