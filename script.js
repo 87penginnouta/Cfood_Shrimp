@@ -6,9 +6,15 @@ $(window).on("load", function () {
   $("#bg").css('visibility', 'visible');
 });
 
-var jq = $;
+
+/*-----aos-----*/
 
 AOS.init();
+
+
+/*-----視差-----*/
+
+var s = skrollr.init();
 
 
 /*-----錨點-----*/
@@ -33,6 +39,7 @@ $(function () {
   });
 });
 
+
 /*-----返回頂端-----*/
 
 $(function () {
@@ -40,11 +47,11 @@ $(function () {
   $('#gotop').click(function () {
     $('html,body').animate({
       scrollTop: 0
-    }, 'slow'); /* 返回到最頂上 */
+    }, 'slow'); 
     return false;
   });
 
-  /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+  /* 往下滑超過就讓GoTop按鈕出現 */
   $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {
       $('#gotop').fadeIn();
@@ -52,33 +59,4 @@ $(function () {
       $('#gotop').fadeOut();
     }
   });
-});
-
-$(document).ready(function () {
-
-  // INITIATE THE FOOTER
-  siteFooter();
-  // COULD BE SIMPLIFIED FOR THIS PEN BUT I WANT TO MAKE IT AS EASY TO PUT INTO YOUR SITE AS POSSIBLE
-  $(window).resize(function () {
-    siteFooter();
-  });
-
-  function siteFooter() {
-    var siteContent = $('#bg');
-    var siteContentHeight = siteContent.height();
-    var siteContentWidth = siteContent.width();
-
-    var siteFooter = $('#footer');
-    var siteFooterHeight = siteFooter.height();
-    var siteFooterWidth = siteFooter.width();
-
-    console.log('Content Height = ' + siteContentHeight + 'px');
-    console.log('Content Width = ' + siteContentWidth + 'px');
-    console.log('Footer Height = ' + siteFooterHeight + 'px');
-    console.log('Footer Width = ' + siteFooterWidth + 'px');
-
-    siteContent.css({
-      "margin-bottom": siteFooterHeight + 50
-    });
-  }
 });
